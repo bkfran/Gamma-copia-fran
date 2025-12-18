@@ -1,0 +1,65 @@
+/* ===========================================================
+   CONTENEDOR PRINCIPAL DEL HEADER
+   Barra superior fija en la parte superior del dashboard.
+   Contiene el título a la izquierda y el área de usuario a la derecha.
+   =========================================================== */
+.header {
+  width: 100%;                       /* Ocupa todo el ancho */
+  height: 70px;                      /* Altura estándar de cabecera */
+  background-color: #003366;         /* Azul corporativo */
+  color: white;
+  display: flex;                     /* Layout horizontal */
+  justify-content: space-between;    /* Título a la izquierda, usuario a la derecha */
+  align-items: center;               /* Centrado vertical */
+  padding: 0 30px;                   /* Espaciado horizontal interno */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra inferior elegante */
+}
+
+
+/* ===========================================================
+   TÍTULO DEL HEADER (NeoCare Health)
+   =========================================================== */
+.header-title {
+  font-size: 26px;     /* Tamaño claro y visible */
+  font-weight: 700;    /* Texto fuerte para destacar */
+}
+
+
+/* ===========================================================
+   CONTENEDOR DERECHO: nombre del usuario + botón logout
+   =========================================================== */
+.header-right {
+  display: flex;        /* Coloca los elementos en línea */
+  align-items: center;
+  gap: 25px;            /* Espacio entre nombre y botón */
+}
+
+
+/* ===========================================================
+   NOMBRE DEL USUARIO
+   =========================================================== */
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffffcc;    /* Blanco suave (transparencia ligera) */
+}
+
+
+/* ===========================================================
+   BOTÓN DE CERRAR SESIÓN
+   =========================================================== */
+.logout-button {
+  padding: 10px 20px;        /* Tamaño cómodo */
+  font-size: 16px;
+  background-color: #ff5c5c; /* Rojo claro de advertencia */
+  border: none;
+  border-radius: 8px;        /* Bordes redondeados */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Efecto al pasar el ratón: tono más oscuro */
+.logout-button:hover {
+  background-color: #cc4a4a;
+}

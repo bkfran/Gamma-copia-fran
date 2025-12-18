@@ -1,0 +1,77 @@
+/* ===========================================================
+   CONTENEDOR PRINCIPAL DEL LOGIN
+   Ocupa toda la pantalla y centra el formulario tanto vertical
+   como horizontalmente. El fondo es una imagen completa.
+   =========================================================== */
+.login-container {
+  height: 100vh;                 /* Ocupa toda la altura de la ventana */
+  width: 100vw;                  /* Ocupa todo el ancho disponible */
+  display: flex;                 /* Flexbox para centrar contenido */
+  justify-content: center;       /* Centra horizontalmente */
+  align-items: center;           /* Centra verticalmente */
+  background-size: cover;        /* La imagen cubre todo el fondo */
+  background-position: center;   /* Centra la imagen */
+  background-repeat: no-repeat;  /* Evita que se repita la imagen */
+}
+
+
+/* ===========================================================
+   FORMULARIO DE LOGIN
+   Caja semitransparente con estilo moderno y centrado.
+   La propiedad margin-top desplaza el formulario hacia abajo:
+   esto se puede ajustar más adelante si usamos Flex correctamente.
+   =========================================================== */
+.login-form {
+  margin-top: 380px;        /* ← Desplaza el formulario hacia abajo (ajustable) */
+  background-color: rgba(52, 152, 219, 0.85); /* Azul con transparencia */
+  padding: 40px;            /* Espaciado interno */
+  border-radius: 15px;      /* Bordes redondeados */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Sombra alrededor */
+  display: flex;
+  flex-direction: column;   /* Coloca los inputs uno debajo del otro */
+  width: 320px;             /* Anchura fija del formulario */
+  backdrop-filter: blur(4px); /* Difumina el fondo detrás del formulario */
+}
+
+
+/* ===========================================================
+   TÍTULO DEL FORMULARIO
+   =========================================================== */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333; /* Gris oscuro para contraste */
+}
+
+
+/* ===========================================================
+   CAMPOS DE ENTRADA (EMAIL Y PASSWORD)
+   =========================================================== */
+.login-form input {
+  margin-bottom: 15px;      /* Espacio entre inputs */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;       /* Bordes suaves */
+  border: 1px solid #ccc;   /* Borde gris claro */
+}
+
+
+/* ===========================================================
+   BOTÓN DE INGRESO
+   =========================================================== */
+.login-form button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff; /* Azul principal */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Cambio de color al pasar el ratón */
+.login-form button:hover {
+  background-color: #0056b3;
+}

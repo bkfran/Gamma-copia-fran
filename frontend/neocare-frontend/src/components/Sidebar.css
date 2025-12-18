@@ -1,0 +1,75 @@
+/* ===========================================================
+   SIDEBAR (MENÚ LATERAL IZQUIERDO)
+   Estilo visual del panel lateral que aparece junto al tablero.
+   =========================================================== */
+.sidebar {
+  width: 220px;                         /* Ancho fijo del menú */
+  background-color: #d8e6ff;            /* Azul claro suave */
+  min-height: calc(100vh - 70px);       /* Altura de pantalla menos header */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;               /* Elementos verticales */
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1); /* Sombra a la derecha */
+}
+
+
+/* ===========================================================
+   TÍTULO DEL SIDEBAR
+   =========================================================== */
+.sidebar-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #003366;                       /* Azul corporativo */
+  text-align: center;
+  text-decoration: underline;           /* Subrayado decorativo */
+}
+
+
+/* ===========================================================
+   LISTA DE OPCIONES DEL MENÚ
+   =========================================================== */
+.sidebar-list {
+  list-style: none;                     /* Quita los puntos de lista */
+  padding: 0;
+  margin: 0;
+}
+
+
+/* ===========================================================
+   ELEMENTOS DE LA LISTA (OPCIONES DEL MENÚ)
+   Cada <li> funciona como un botón visual.
+   =========================================================== */
+.sidebar-list li {
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #c4d8ff;           /* Azul claro */
+  border-radius: 8px;                  /* Esquinas suaves */
+  font-size: 18px;
+  color: #003366;                      /* Azul corporativo */
+  font-weight: 600;
+  cursor: pointer;                     /* Indica que es clicable */
+  transition: background-color .2s;    /* Animación suave al pasar el ratón */
+}
+
+
+/* ===========================================================
+   EFECTO HOVER EN OPCIONES DEL MENÚ
+   Mejora la experiencia visual al interactuar con el sidebar.
+   =========================================================== */
+.sidebar-list li:hover {
+  background-color: #b1cbff;           /* Azul un poco más oscuro */
+}
+
+
+/* ===========================================================
+   BOTÓN "CREAR TARJETA"
+   Es una opción especial del menú (antes era "Tablero")
+   =========================================================== */
+.sidebar-create {
+  color: #0d6efd;                      /* Azul más llamativo */
+  font-weight: 800;                    /* Más énfasis visual */
+}
+
+.sidebar-create:hover {
+  background-color: #9bbcff;           /* Azul distinto para destacar */
+}

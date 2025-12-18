@@ -1,0 +1,197 @@
+/* ===========================================================
+   CONTENEDOR GENERAL DEL TABLERO
+   =========================================================== */
+.board-container {
+  height: 100vh;
+  width: 100vw;
+  background: #e6f0ff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================================================
+   CONTENEDOR PRINCIPAL
+   =========================================================== */
+.content {
+  display: flex;
+  flex: 1;
+}
+
+/* ===========================================================
+   KANBAN
+   =========================================================== */
+.kanban {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ===========================================================
+   COLUMNAS
+   =========================================================== */
+.column {
+  background: #cfe2ff;
+  padding: 20px;
+  width: 30%;
+  min-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.column h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #002855;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ===========================================================
+   CONTENEDOR DE TARJETAS
+   =========================================================== */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+/* ===========================================================
+   TARJETA
+   =========================================================== */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* CUERPO */
+.card-body h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #003366;
+  word-wrap: break-word;   /* CLAVE PARA TEXTOS LARGOS, asi no desborda el titulo */
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.card-body p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+/* FECHA */
+.card-deadline {
+  font-size: 12px;
+  background-color: #eef3ff;
+  color: #003366;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+  font-weight: 600;
+}
+
+/* ===========================================================
+   BADGE DE ESTADO DE LA TARJETA
+   Indica visualmente el estado actual (Por hacer / En curso / Hecho)
+   =========================================================== */
+
+.status-badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* =======================
+   ESTADOS
+   ======================= */
+
+/* Por hacer → gris claro (no blanco para que se vea sobre la tarjeta) */
+.status-por-hacer {
+  background-color: #e5e5e5;
+  color: #333;
+}
+
+/* En curso → amarillo claro */
+.status-en-curso {
+  background-color: #fff3bf;
+  color: #664d00;
+}
+
+/* Hecho → amarillo más oscuro */
+.status-hecho {
+  background-color: #ffd966;
+  color: #5c4300;
+}
+
+
+/* ============================
+   BADGES DE VENCIMIENTO
+   ============================ */
+.card-deadline.normal {
+  background-color: #eef3ff;
+  color: #003366;
+}
+
+.card-deadline.soon {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.card-deadline.expired {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+
+/* ACCIONES */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-card-btn {
+  background-color: #ddffdd;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.edit-card-btn:hover {
+  background-color: #bff0bf;
+}
+
+
+.delete-card-btn {
+  background-color: #ffdddd;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-card-btn:hover {
+  background-color: #ffbcbc;
+}
