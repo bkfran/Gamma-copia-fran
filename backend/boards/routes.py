@@ -25,3 +25,36 @@ def list_boards(
         .all()
     )
     return boards
+
+# ---------------------------------------------------------
+# GET /boards/{board_id}/lists
+# Devuelve las listas de un tablero concreto
+# ---------------------------------------------------------
+@router.get("/{board_id}/lists")
+def get_board_lists(
+    board_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    # Comprobar que el tablero pertenece al usuario
+    board = (
+        db.query(models.Board)
+        .filter(
+            models.Board.id == board_id,
+            models.Board.user_id == current_user.id
+        )
+        .first()
+    )
+
+    if not board:
+        return {"detail": "No tienes acceso a este tablero"}
+
+    lists = (
+        db.query(models.List)
+        .filter(models.List.board_id == board_id)
+        .order_by(models.List.id)
+        .all()
+    )
+
+    return lists
+

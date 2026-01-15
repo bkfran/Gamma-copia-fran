@@ -1,8 +1,9 @@
-from datetime import timedelta
+from datetime import timedelta, date
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+from sqlalchemy import and_
 
 from ..database import get_db
 from .. import models
@@ -13,6 +14,11 @@ from .utils import (
     create_access_token,
     get_current_user,
 )
+
+# 🔽 IMPORTS PARA WORKLOGS (PASO C)
+from ..worklogs.models import WorkLog
+from ..worklogs.schemas import WorkLogOut
+
 
 # Definimos router con prefijo /auth
 router = APIRouter(
@@ -116,3 +122,71 @@ def read_current_user(current_user: models.User = Depends(get_current_user)):
     Necesita un token válido (Authorization: Bearer <token>).
     """
     return current_user
+
+
+# ========================================================================
+# GET /auth/users/me/worklogs   ← PASO C
+# Devuelve las horas del usuario autenticado filtradas por semana ISO
+# ========================================================================
+@router.get(
+    "/users/me/worklogs",
+    response_model=list[WorkLogOut],
+)
+def get_my_worklogs(
+    week: str = Query(..., example="2024-18"),
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    """
+    PASO C — Vista "Mis horas"
+
+    - Devuelve SOLO los worklogs del usuario autenticado
+    - Filtra por semana ISO (YYYY-WW)
+    - Ordena por fecha ascendente
+    - Preparado para que el frontend calcule:
+        · Totales por día
+        · Total semanal
+    """
+
+    # --------------------------------------------------
+    # 1️⃣ Parsear semana ISO (YYYY-WW)
+    # --------------------------------------------------
+    try:
+        year_str, week_str = week.split("-")
+        year = int(year_str)
+        week_number = int(week_str)
+    except ValueError:
+        raise HTTPException(
+            status_code=400,
+            detail="Formato de semana inválido. Usa YYYY-WW",
+        )
+
+    # --------------------------------------------------
+    # 2️⃣ Calcular lunes y domingo de esa semana ISO
+    # --------------------------------------------------
+    try:
+        start_date = date.fromisocalendar(year, week_number, 1)  # lunes
+        end_date = date.fromisocalendar(year, week_number, 7)    # domingo
+    except ValueError:
+        raise HTTPException(
+            status_code=400,
+            detail="Semana ISO inválida",
+        )
+
+    # --------------------------------------------------
+    # 3️⃣ Query segura de worklogs
+    # --------------------------------------------------
+    worklogs = (
+        db.query(WorkLog)
+        .filter(
+            and_(
+                WorkLog.user_id == current_user.id,   # 🔐 solo horas propias
+                WorkLog.date >= start_date,
+                WorkLog.date <= end_date,
+            )
+        )
+        .order_by(WorkLog.date.asc())
+        .all()
+    )
+
+    return worklogs

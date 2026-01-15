@@ -1,0 +1,198 @@
+/* ================================
+   OVERLAY (fondo oscuro)
+================================ */
+.wl-overlay {
+  position: fixed;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ================================
+   MODAL
+================================ */
+.wl-modal {
+  background: #ffffff;
+  color: #000000;
+  width: 520px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  animation: wl-fade-in 0.2s ease-out;
+}
+
+/* ================================
+   HEADER
+================================ */
+.wl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wl-header h2 {
+  margin: 0;
+}
+
+.wl-close {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ================================
+   SUBTITLE
+================================ */
+.wl-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+/* ================================
+   ERROR
+================================ */
+.wl-error {
+  background: #ff4d4f;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* ================================
+   CREATE FORM
+================================ */
+.wl-create {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.wl-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.wl-row label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+.wl-row input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* ================================
+   ACTIONS
+================================ */
+.wl-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.wl-actions button,
+.wl-create button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ================================
+   LIST
+================================ */
+.wl-list {
+  margin-top: 10px;
+}
+
+.wl-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.wl-line {
+  font-size: 14px;
+}
+
+.wl-note {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.wl-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* ================================
+   BOTONES CON COLORES (CORREGIDO)
+================================ */
+
+/* 🟢 AÑADIR */
+.wl-create .wl-actions button:first-child {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.wl-create .wl-actions button:first-child:hover {
+  background-color: #1b5e20;
+}
+
+/* 🔵 EDITAR / GUARDAR */
+.wl-actions button:first-child {
+  background-color: #1976d2;
+  color: white;
+}
+
+.wl-actions button:first-child:hover {
+  background-color: #0d47a1;
+}
+
+/* 🔴 ELIMINAR */
+.wl-actions button:last-child {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.wl-actions button:last-child:hover {
+  background-color: #9a0007;
+}
+
+
+/* ================================
+   ANIMATION
+================================ */
+@keyframes wl-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

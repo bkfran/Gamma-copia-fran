@@ -3,7 +3,7 @@
    Estilo visual del panel lateral que aparece junto al tablero.
    =========================================================== */
 .sidebar {
-  width: 220px;                         /* Ancho fijo del menú */
+  width: 155px;                         /* Ancho fijo del menú */
   background-color: #d8e6ff;            /* Azul claro suave */
   min-height: calc(100vh - 70px);       /* Altura de pantalla menos header */
   padding: 20px;

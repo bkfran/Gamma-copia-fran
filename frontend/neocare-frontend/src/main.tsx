@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";   // Página de inicio de sesión
 import Register from "./pages/Register"; // Página de registro
 import Boards from "./pages/Boards"; // Página del tablero (vista protegida)
+import Report from "./pages/Report";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // Importación de estilos globales
@@ -36,6 +37,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           element={
             <ProtectedRoute>
               <Boards />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/report"
+          element={
+            <ProtectedRoute>
+              <Report />
             </ProtectedRoute>
           }
         />

@@ -79,3 +79,150 @@
 .btn-save:hover {
   background: #084298;
 }
+
+.extras-section {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.extras-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #0f2d52;
+}
+
+.extras-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.extras-row input,
+.extras-row select {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #c9d6e8;
+}
+
+.btn-secondary {
+  background: #0f5ecd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #0c4da1;
+}
+
+.labels-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.label-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.label-chip button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.label-blue {
+  background: #3b82f6;
+}
+
+.label-red {
+  background: #ef4444;
+}
+
+.label-green {
+  background: #22c55e;
+}
+
+.label-yellow {
+  background: #eab308;
+}
+
+.subtasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.subtask-item.done {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.subtask-item button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.progress-box {
+  margin-bottom: 10px;
+}
+
+.progress-info {
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0f5ecd;
+  border-radius: 999px;
+  transition: width 200ms ease;
+}
+
+.extras-note {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 4px 0;
+}
+
+.extras-error {
+  color: #b91c1c;
+  font-size: 12px;
+  margin-top: 6px;
+}

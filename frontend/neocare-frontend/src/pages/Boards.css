@@ -3,7 +3,7 @@
    =========================================================== */
 .board-container {
   height: 100vh;
-  width: 100vw;
+  width: 99vw;    /*esto evita scroll horizontal*/
   background: #e6f0ff;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,50 @@
   flex: 1;
 }
 
+.board-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.board-toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.board-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccd9f1;
+  background: #ffffff;
+}
+
+.board-select {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccd9f1;
+  background: #ffffff;
+}
+
+.board-clear {
+  background: #0f5ecd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.board-clear:hover {
+  background: #0c4da1;
+}
+
 /* ===========================================================
    KANBAN
    =========================================================== */
@@ -26,6 +70,39 @@
   width: 100%;
   padding: 20px;
 }
+
+/* =========================================================
+   DRAG & DROP – MEJORAS VISUALES
+   ========================================================= */
+
+/* Transición suave al reordenar tarjetas */
+.card {
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* Tarjeta mientras se arrastra (overlay) */
+.card.dragging {
+  opacity: 0.6;
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+  cursor: grabbing;
+}
+
+/* Evita que el layout "salte" */
+.cards {
+  min-height: 40px;
+}
+
+/* Mejora visual de columnas al recibir tarjeta */
+.column {
+  transition: background-color 200ms ease;
+}
+
+/* (Opcional) color sutil al pasar por encima */
+.column:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
 
 /* ===========================================================
    COLUMNAS
@@ -72,6 +149,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.18);
 }
 
 /* CUERPO */

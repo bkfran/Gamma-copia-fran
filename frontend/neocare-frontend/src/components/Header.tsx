@@ -28,7 +28,6 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
 
       {/* Sección derecha del header: usuario + botón de logout */}
       <div className="header-right">
-
         {/* Muestra el nombre del usuario actualmente logueado */}
         <span className="user-name">{userName}</span>
 

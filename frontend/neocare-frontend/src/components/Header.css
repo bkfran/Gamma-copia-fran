@@ -4,7 +4,7 @@
    Contiene el título a la izquierda y el área de usuario a la derecha.
    =========================================================== */
 .header {
-  width: 100%;                       /* Ocupa todo el ancho */
+  width: 99%;                       /* Ocupa todo el ancho */
   height: 70px;                      /* Altura estándar de cabecera */
   background-color: #003366;         /* Azul corporativo */
   color: white;
@@ -31,7 +31,7 @@
 .header-right {
   display: flex;        /* Coloca los elementos en línea */
   align-items: center;
-  gap: 25px;            /* Espacio entre nombre y botón */
+  gap: 18px;            /* Espacio entre nombre y botón */
 }
 
 

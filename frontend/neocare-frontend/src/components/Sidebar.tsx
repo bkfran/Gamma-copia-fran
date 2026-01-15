@@ -8,9 +8,10 @@ import "./Sidebar.css";
 interface SidebarProps {
   user: any;
   onCrearTarjeta: () => void;
+  onInforme?: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ user, onCrearTarjeta }) => {
+const Sidebar: React.FC<SidebarProps> = ({ user, onCrearTarjeta, onInforme }) => {
   return (
     // Etiqueta <aside> indica que es una barra lateral
     <aside className="sidebar">
@@ -37,9 +38,11 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onCrearTarjeta }) => {
           ➕ Crear tarjeta
         </li>
 
-        <li>⏱️ Mis horas</li>
-        <li>📊 Informe</li>
-        <li>⚙️ Configuración</li>
+        
+        <li onClick={onInforme} role="button">
+          📊 Informe
+        </li>
+        
       </ul>
     </aside>
   );
